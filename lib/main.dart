@@ -32,11 +32,12 @@ class MyApp extends StatelessWidget {
       },
       theme: ThemeData(
           primaryColor: const Color(0xFF8C52FF),
+          fontFamily: 'Roboto',
           colorScheme: const ColorScheme(
               brightness: Brightness.light,
               primary: Color(0xFF108DE9),
               onPrimary: Color.fromARGB(255, 13, 57, 93),
-              secondary: Color(0xCC108DE9),
+              secondary: Color(0x33108DE9),
               onSecondary: Color.fromARGB(255, 77, 76, 76),
               error: Colors.redAccent,
               onError: Color(0xFF9C4343),

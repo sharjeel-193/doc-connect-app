@@ -14,7 +14,7 @@ class _PatientNavigationState extends State<PatientNavigation> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    PatientHomeScreen(),
+    const PatientHomeScreen(),
     PatientAppointmentsScreen(),
     PatientNotificationsScreen(),
     PatientRecordsScreen()
@@ -29,7 +29,7 @@ class _PatientNavigationState extends State<PatientNavigation> {
         child: Scaffold(
           key: _scaffoldKey,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(64.0),
+            preferredSize: const Size.fromHeight(64.0),
             child: AppBar(
               backgroundColor: Colors.white,
               leading: Padding(
@@ -50,7 +50,7 @@ class _PatientNavigationState extends State<PatientNavigation> {
               ),
               actions: [
                 Padding(
-                    padding: EdgeInsets.fromLTRB(16.0, 0, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(16.0, 0, 0, 0),
                     child: IconButton(
                       icon: const CircleAvatar(
                         radius: 36.0,
@@ -72,7 +72,7 @@ class _PatientNavigationState extends State<PatientNavigation> {
             child: ListView(
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: 24.0, bottom: 24.0),
+                  padding: const EdgeInsets.only(top: 24.0, bottom: 24.0),
                   child: DrawerHeader(
                     decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.primary,
@@ -102,6 +102,8 @@ class _PatientNavigationState extends State<PatientNavigation> {
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             currentIndex: _currentIndex,
+            showSelectedLabels: true,
+            showUnselectedLabels: false,
             onTap: (int index) {
               setState(() {
                 _currentIndex = index;
@@ -109,19 +111,19 @@ class _PatientNavigationState extends State<PatientNavigation> {
             },
             items: const [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: Icon(Icons.home_outlined),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_today),
+                icon: Icon(Icons.calendar_today_outlined),
                 label: 'Appointments',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.notifications),
+                icon: Icon(Icons.notifications_outlined),
                 label: 'Notifications',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.receipt),
+                icon: Icon(Icons.receipt_long_outlined),
                 label: 'Records',
               ),
             ],
