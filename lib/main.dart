@@ -4,7 +4,6 @@ import 'package:doc_connect_app/screens/splash_screen.dart';
 import 'package:doc_connect_app/navigations/patient_navigation.dart';
 import 'package:doc_connect_app/screens/patient_appointments_screen.dart';
 import 'package:doc_connect_app/screens/patient_home_screen.dart';
-import 'package:doc_connect_app/screens/patient_profile_screen.dart';
 import 'package:doc_connect_app/screens/patients_notifications_screen.dart';
 import 'package:flutter/material.dart';
 
