@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import '../screens/doctor_profile_screen.dart';
 
 class DoctorButton extends StatelessWidget {
   final String image;
@@ -24,6 +25,18 @@ class DoctorButton extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         // Handle doctor button tap here using the provided link
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DoctorProfileScreen(
+              name: 'Dr. John Doe',
+              imageUrl: 'assets/images/doctor-1.jpg',
+              aboutHeading: 'About Dr. John Doe',
+              aboutText:
+                  'Dr. John Doe is a highly skilled physician with over 20 years of experience...',
+            ),
+          ),
+        );
       },
       child: Container(
         padding: const EdgeInsets.all(12.0),

@@ -10,7 +10,7 @@ class PatientNavigation extends StatefulWidget {
 }
 
 class _PatientNavigationState extends State<PatientNavigation> {
-  int _currentIndex = 1;
+  int _currentIndex = 0;
 
   final List<Widget> _screens = [
     const PatientHomeScreen(),
