@@ -105,7 +105,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
-                        child: Image.network(
+                        child: Image.asset(
                           widget.doctorImg,
                           width: 60,
                           height: 48,

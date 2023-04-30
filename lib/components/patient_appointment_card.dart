@@ -58,7 +58,7 @@ class PatientAppointmentCard extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
+                  child: Image.asset(
                     doctorPic,
                     width: 60,
                     height: 48,

@@ -28,7 +28,7 @@ class DoctorTypeButton extends StatelessWidget {
       child: Container(
         width: width,
         height: width,
-        margin: const EdgeInsets.all(12.0),
+        margin: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10.0),

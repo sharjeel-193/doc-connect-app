@@ -24,6 +24,8 @@ class DoctorProfileScreen extends StatelessWidget {
             icon: Icon(Icons.arrow_back),
             onPressed: () => Navigator.pop(context),
           ),
+          elevation: 0,
+          centerTitle: true,
           backgroundColor: Colors.white,
         ),
         body: SingleChildScrollView(
@@ -31,7 +33,7 @@ class DoctorProfileScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 16),
-              Image.network(
+              Image.asset(
                 imageUrl,
                 height: 208,
                 fit: BoxFit.cover,
@@ -92,12 +94,12 @@ class DoctorProfileScreen extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: GoogleMap(
-                          initialCameraPosition: CameraPosition(
+                          initialCameraPosition: const CameraPosition(
                             target: LatLng(37.4221, -122.0841),
                             zoom: 15,
                           ),
                           markers: {
-                            Marker(
+                            const Marker(
                               markerId: MarkerId('Clinic'),
                               position: LatLng(37.4221, -122.0841),
                             ),
@@ -242,7 +244,7 @@ Widget _buildReviewCard(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CircleAvatar(
-          backgroundImage: NetworkImage(userProfileImage),
+          backgroundImage: AssetImage(userProfileImage),
         ),
         SizedBox(width: 16.0),
         Expanded(

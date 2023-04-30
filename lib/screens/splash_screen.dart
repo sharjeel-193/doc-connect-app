@@ -1,5 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:doc_connect_app/screens/login_screen.dart';
+import 'package:doc_connect_app/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -22,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: AnimatedSplashScreen(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        nextScreen: LoginScreen(),
+        nextScreen: SignupScreen(),
         splash: Image.asset(
           './assets/logos/logo-white-text.png',
           height: 200,
