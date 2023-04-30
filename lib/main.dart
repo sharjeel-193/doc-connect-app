@@ -1,3 +1,4 @@
+import 'package:doc_connect_app/screens/book_appointment_screen.dart';
 import 'package:doc_connect_app/screens/login_screen.dart';
 import 'package:doc_connect_app/screens/patient_records_screen.dart';
 import 'package:doc_connect_app/screens/splash_screen.dart';
@@ -28,9 +29,13 @@ class MyApp extends StatelessWidget {
         '/patient/appointments': (context) => PatientAppointmentsScreen(),
         '/patient/notifications': (context) => PatientNotificationsScreen(),
         '/patient/records': (context) => PatientRecordsScreen(),
+        '/book-appointment': (context) => BookAppointmentScreen(
+            doctorName: 'Dr. Ali',
+            doctorImg: 'assets/images/doctor-2.jpg',
+            doctorType: 'Cardiology')
       },
       theme: ThemeData(
-          primaryColor: const Color(0xFF8C52FF),
+          primaryColor: const Color(0xFF108DE9),
           fontFamily: 'Roboto',
           colorScheme: const ColorScheme(
               brightness: Brightness.light,

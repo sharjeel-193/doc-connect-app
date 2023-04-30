@@ -1,3 +1,4 @@
+import 'package:doc_connect_app/screens/book_appointment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -162,7 +163,16 @@ class DoctorProfileScreen extends StatelessWidget {
                       height: 48,
                       child: ElevatedButton(
                         onPressed: () {
-                          // handle button press
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => BookAppointmentScreen(
+                                doctorImg: 'assets/images/doctor-1.jpg',
+                                doctorName: 'Dr. Muzammil Malik',
+                                doctorType: 'Dentist',
+                              ),
+                            ),
+                          );
                         },
                         child: Text(
                           'Book Appointment',

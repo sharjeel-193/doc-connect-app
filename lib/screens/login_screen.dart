@@ -1,3 +1,4 @@
+import 'package:doc_connect_app/screens/book_appointment_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -14,7 +15,17 @@ class _LoginScreenState extends State<LoginScreen> {
     // Perform login action
     print('Email: $_email');
     print('Password: $_password');
-    Navigator.pushNamed(context, '/patient');
+    // Navigator.pushNamed(context, '/patient');
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BookAppointmentScreen(
+          doctorImg: 'assets/images/doctor-1.jpg',
+          doctorName: 'Dr. Muzammil Malik',
+          doctorType: 'Dentist',
+        ),
+      ),
+    );
   }
 
   void _goToSignUp() {
