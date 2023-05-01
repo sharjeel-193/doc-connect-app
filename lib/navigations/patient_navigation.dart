@@ -1,7 +1,9 @@
+import 'package:doc_connect_app/components/snackbars.dart';
 import 'package:doc_connect_app/screens/patient_appointments_screen.dart';
 import 'package:doc_connect_app/screens/patient_home_screen.dart';
 import 'package:doc_connect_app/screens/patient_records_screen.dart';
 import 'package:doc_connect_app/screens/patients_notifications_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class PatientNavigation extends StatefulWidget {
@@ -20,6 +22,26 @@ class _PatientNavigationState extends State<PatientNavigation> {
   ];
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void _handleLogout(BuildContext context) async {
+    try {
+      // Show loading indicator
+      showLoadingSnackBar(_scaffoldKey.currentContext!, 'Logging out');
+
+      // Sign out the user
+      await FirebaseAuth.instance.signOut();
+
+      // Show success message
+      showSuccessSnackBar(
+          _scaffoldKey.currentContext!, 'Logged out successfully');
+
+      // Navigate to login screen
+      Navigator.pushReplacementNamed(context, '/login');
+    } on FirebaseAuthException catch (e) {
+      // Show error message
+      showErrorSnackBar(_scaffoldKey.currentContext!, e.message!);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +115,13 @@ class _PatientNavigationState extends State<PatientNavigation> {
                   leading: Icon(Icons.settings),
                   title: Text('Settings'),
                   onTap: () {},
+                ),
+                ListTile(
+                  leading: Icon(Icons.logout),
+                  title: Text('Logout'),
+                  onTap: () {
+                    _handleLogout(context);
+                  },
                 ),
               ],
             ),

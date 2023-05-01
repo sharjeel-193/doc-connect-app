@@ -7,6 +7,7 @@ import 'package:doc_connect_app/navigations/patient_navigation.dart';
 import 'package:doc_connect_app/screens/patient_appointments_screen.dart';
 import 'package:doc_connect_app/screens/patient_home_screen.dart';
 import 'package:doc_connect_app/screens/patients_notifications_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -24,29 +25,34 @@ void main() async {
 //   runApp(MyApp());
 // }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
-  // This widget is the root of your application.
+class _MyAppState extends State<MyApp> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  bool _isLoggedIn = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkLoggedIn();
+  }
+
+  void _checkLoggedIn() async {
+    User? user = _auth.currentUser;
+    print(user);
+    setState(() {
+      _isLoggedIn = (user != null);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      initialRoute: '/login',
-      routes: {
-        '/': (context) => const SplashScreen(),
-        '/login': (context) => LoginScreen(),
-        '/signup': (context) => SignupScreen(),
-        '/patient': (context) => PatientNavigation(),
-        '/patient/home': (context) => PatientHomeScreen(),
-        '/patient/appointments': (context) => PatientAppointmentsScreen(),
-        '/patient/notifications': (context) => PatientNotificationsScreen(),
-        '/patient/records': (context) => PatientRecordsScreen(),
-        '/book-appointment': (context) => BookAppointmentScreen(
-            doctorName: 'Dr. Ali',
-            doctorImg: 'assets/images/doctor-2.jpg',
-            doctorType: 'Cardiology')
-      },
+      title: 'Doc Connect',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primaryColor: const Color(0xFF108DE9),
           fontFamily: 'Roboto',
@@ -62,7 +68,21 @@ class MyApp extends StatelessWidget {
               onBackground: Colors.white,
               surface: Colors.white,
               onSurface: Colors.white)),
-      // home: const SplashScreen(),
+      routes: {
+        '/': (context) => SplashScreen(isLoggedIn: _isLoggedIn),
+        '/login': (context) => LoginScreen(isLoggedIn: _isLoggedIn),
+        '/signup': (context) => SignupScreen(),
+        '/patient': (context) => PatientNavigation(),
+        '/patient/home': (context) => PatientHomeScreen(),
+        '/patient/appointments': (context) => PatientAppointmentsScreen(),
+        '/patient/notifications': (context) => PatientNotificationsScreen(),
+        '/patient/records': (context) => PatientRecordsScreen(),
+        '/book-appointment': (context) => const BookAppointmentScreen(
+            doctorName: 'Dr. Ali',
+            doctorImg: 'assets/images/doctor-2.jpg',
+            doctorType: 'Cardiology')
+      },
+      initialRoute: '/',
     );
   }
 }

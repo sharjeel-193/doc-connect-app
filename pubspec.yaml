@@ -24,6 +24,7 @@ dependencies:
   firebase_auth: ^4.2.2
   cloud_firestore: ^4.5.3
   firebase_auth_web: ^5.2.2
+  intl: ^0.18.0
   
 
 dev_dependencies:
@@ -31,9 +32,6 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.0
-
-dependency_overrides:
-  intl: ^0.18.0
 
 flutter:
 
