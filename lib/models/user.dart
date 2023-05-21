@@ -1,24 +1,31 @@
-class User {
+class UserModel {
   final String id;
   final String email;
   final String name;
   final DateTime dob;
   final bool isVerified;
+  final String gender;
+  // final String profileImgUrl = ;
 
-  User(
-      {required this.id,
-      required this.email,
-      required this.name,
-      required this.dob,
-      required this.isVerified});
+  UserModel({
+    required this.id,
+    required this.email,
+    required this.name,
+    required this.dob,
+    required this.isVerified,
+    required this.gender,
+    // this.profileImgUrl
+  });
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
       id: json['id'],
       email: json['email'],
       name: json['name'],
       dob: DateTime.parse(json['dob']),
       isVerified: json['isVerified'],
+      gender: json['gender'],
+      // profileImgUrl: json['profileImgUrl']
     );
   }
 
@@ -27,6 +34,8 @@ class User {
         'email': email,
         'name': name,
         'dob': dob.toIso8601String(),
-        'isVerified': isVerified
+        'isVerified': isVerified,
+        'gender': gender,
+        // 'profileImgUrl': profileImgUrl
       };
 }

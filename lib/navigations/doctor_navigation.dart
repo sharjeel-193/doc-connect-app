@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 
 import '../screens/user_profile.dart';
 
-class PatientNavigation extends StatefulWidget {
+class DoctorNavigation extends StatefulWidget {
   @override
-  _PatientNavigationState createState() => _PatientNavigationState();
+  _DoctorNavigationState createState() => _DoctorNavigationState();
 }
 
-class _PatientNavigationState extends State<PatientNavigation> {
+class _DoctorNavigationState extends State<DoctorNavigation> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
@@ -144,13 +144,13 @@ class _PatientNavigationState extends State<PatientNavigation> {
                   child: ElevatedButton(
                     onPressed: () {
                       // Handle "Become a Doctor" button press
-                      Navigator.pushReplacementNamed(context, '/doctor');
+                      Navigator.pushReplacementNamed(context, '/patient');
                     },
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.all(16.0),
                       // Add padding inside the button
                     ),
-                    child: const Text('Become a Doctor',
+                    child: const Text('Become a Patient',
                         style: TextStyle(color: Colors.white)),
                   ),
                 ),
@@ -184,7 +184,7 @@ class _PatientNavigationState extends State<PatientNavigation> {
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.receipt_long_outlined),
-                label: 'Records',
+                label: 'Data',
               ),
             ],
           ),

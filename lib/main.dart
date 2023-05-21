@@ -1,3 +1,4 @@
+import 'package:doc_connect_app/navigations/doctor_navigation.dart';
 import 'package:doc_connect_app/screens/book_appointment_screen.dart';
 import 'package:doc_connect_app/screens/login_screen.dart';
 import 'package:doc_connect_app/screens/patient_records_screen.dart';
@@ -80,7 +81,8 @@ class _MyAppState extends State<MyApp> {
         '/book-appointment': (context) => const BookAppointmentScreen(
             doctorName: 'Dr. Ali',
             doctorImg: 'assets/images/doctor-2.jpg',
-            doctorType: 'Cardiology')
+            doctorType: 'Cardiology'),
+        '/doctor': (context) => DoctorNavigation(),
       },
       initialRoute: '/',
     );

@@ -18,6 +18,7 @@ class _SignupScreenState extends State<SignupScreen> {
   String _name = '';
   String _email = '';
   String _password = '';
+  String _gender = 'male';
   DateTime _dob = DateTime.now();
 
   void _signup() {
@@ -57,7 +58,8 @@ class _SignupScreenState extends State<SignupScreen> {
         'name': _name,
         'dob': _dob,
         'isVerified': false,
-        'email': _email
+        'email': _email,
+        'gender': _gender
       });
 
       // Navigate to the home screen after successful sign-up.
@@ -192,6 +194,52 @@ class _SignupScreenState extends State<SignupScreen> {
                                   ),
                                 ),
                                 const SizedBox(height: 20),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    const Text(
+                                      'Gender',
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 10.0),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        Radio(
+                                          value: 'Male',
+                                          groupValue: _gender,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _gender = value.toString();
+                                            });
+                                          },
+                                        ),
+                                        const Text(
+                                          'Male',
+                                          style: TextStyle(fontSize: 16.0),
+                                        ),
+                                        Radio(
+                                          value: 'Female',
+                                          groupValue: _gender,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _gender = value.toString();
+                                            });
+                                          },
+                                        ),
+                                        const Text(
+                                          'Female',
+                                          style: TextStyle(fontSize: 16.0),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 20),
                                 InkWell(
                                   onTap: () {
                                     showDatePicker(
@@ -199,6 +247,18 @@ class _SignupScreenState extends State<SignupScreen> {
                                       initialDate: DateTime.now(),
                                       firstDate: DateTime(1900),
                                       lastDate: DateTime.now(),
+                                      builder: (BuildContext context,
+                                          Widget? child) {
+                                        return Theme(
+                                          data: ThemeData.dark().copyWith(
+                                            colorScheme: ColorScheme.dark(
+                                              primary: Theme.of(context)
+                                                  .primaryColor,
+                                            ),
+                                          ),
+                                          child: child!,
+                                        );
+                                      },
                                     ).then((selectedDate) {
                                       if (selectedDate != null) {
                                         setState(() {
@@ -404,7 +464,7 @@ class _SignupScreenState extends State<SignupScreen> {
             if (_isLoading)
               Container(
                 color: Colors.black.withOpacity(0.8),
-                child: Center(
+                child: const Center(
                   child: CircularProgressIndicator(),
                 ),
               ),
