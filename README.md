@@ -1,16 +1,24 @@
-# doc_connect_app
+# DocConnect App
 
-A new Flutter project.
+### MAD Project
+### BSCS 9C
+### Project Members
+  - Muhammad Sharjeel Maqsood
+  - Hamza Mushtaque
+  - Muhammad Muzammil Malik
 
-## Getting Started
+### Screens Developed
+   - Login / Sign Up Page
+   - Doctor Profile Page
+   - Main Dashboard
+   - Book Appointment Page
+   - Drawer
+   - User Profile Screen
 
-This project is a starting point for a Flutter application.
+### Features Implemented
+   - User Authentication on Firebase
+   - Fetching Data from Firebase
+   - Saving Data on Firebase
+   
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
